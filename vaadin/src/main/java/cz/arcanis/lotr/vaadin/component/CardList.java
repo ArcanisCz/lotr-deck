@@ -1,7 +1,9 @@
 package cz.arcanis.lotr.vaadin.component;
 
+import com.vaadin.data.Item;
 import com.vaadin.data.util.AbstractBeanContainer;
 import com.vaadin.data.util.BeanContainer;
+import com.vaadin.data.util.BeanItem;
 import com.vaadin.ui.CustomComponent;
 import com.vaadin.ui.Table;
 import com.vaadin.ui.VerticalLayout;
@@ -35,9 +37,17 @@ public class CardList extends CustomComponent {
                 return card.getId();
             }
         });
-//        container.addAll(CardDataFactory.getCards());
         table.setContainerDataSource(container);
 
+
+//        table.addGeneratedColumn("th", new Table.ColumnGenerator() {
+//            @Override
+//            public Object generateCell(Table source, Object itemId, Object columnId) {
+//                BeanItem<Card> a = (BeanItem<Card>)source.getItem(itemId);
+//                System.out.println(itemId+" "+ columnId+" "+a.getItemProperty(columnId));
+//                return "aa";
+//            }
+//        });
         table.setSizeFull();
         return table;
     }

@@ -9,7 +9,7 @@ public enum CardSet {
     CORE,
     OTHER;
 
-    public static CardSet getSetByName(String name) {
+    public static CardSet getByName(String name) {
         if (StringUtils.equalsIgnoreCase(name, "core")) {
             return CORE;
         }

@@ -22,7 +22,7 @@ public enum Sphere {
         return color;
     }
 
-    public static Sphere getSetByName(String name) {
+    public static Sphere getByName(String name) {
         if (StringUtils.equalsIgnoreCase(name, "leadership")) {
             return LEADERSHIP;
         } else if (StringUtils.equalsIgnoreCase(name, "tactics")) {
@@ -31,7 +31,9 @@ public enum Sphere {
             return SPIRIT;
         } else if (StringUtils.equalsIgnoreCase(name, "lore")) {
             return LORE;
+        }else if (StringUtils.equalsIgnoreCase(name, "neutral")) {
+            return NEUTRAL;
         }
-        return NEUTRAL;
+        return null;
     }
 }

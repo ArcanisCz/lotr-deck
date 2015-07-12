@@ -2,6 +2,7 @@ package cz.arcanis.lotr.model.entity;
 
 import cz.arcanis.lotr.model.enums.CardSet;
 import cz.arcanis.lotr.model.enums.Sphere;
+import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -67,5 +68,10 @@ public class Card {
 
     public void setUnique(Boolean unique) {
         this.unique = unique;
+    }
+
+    @Override
+    public String toString() {
+        return  ToStringBuilder.reflectionToString(this);
     }
 }
