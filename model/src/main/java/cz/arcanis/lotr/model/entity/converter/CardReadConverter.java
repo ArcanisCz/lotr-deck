@@ -36,7 +36,6 @@ public class CardReadConverter implements Converter<BasicDBObject, Card> {
         fillCommonFields(dbObject, card);
         fillCardDataForInterfaces(CardReadConverter.interfaces, dbObject, card);
 
-        System.out.println(card);
         return card;
     }
 

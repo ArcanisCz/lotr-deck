@@ -1,0 +1,7 @@
+@import "addons.scss";
+@import "lotrtheme.scss";
+
+.lotrtheme {
+  @include addons;
+  @include lotrtheme;
+}

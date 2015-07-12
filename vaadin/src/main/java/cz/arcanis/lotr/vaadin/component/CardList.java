@@ -1,13 +1,13 @@
 package cz.arcanis.lotr.vaadin.component;
 
-import com.vaadin.data.Item;
 import com.vaadin.data.util.AbstractBeanContainer;
 import com.vaadin.data.util.BeanContainer;
-import com.vaadin.data.util.BeanItem;
 import com.vaadin.ui.CustomComponent;
 import com.vaadin.ui.Table;
 import com.vaadin.ui.VerticalLayout;
+import com.vaadin.ui.themes.ValoTheme;
 import cz.arcanis.lotr.model.entity.Card;
+import cz.arcanis.lotr.vaadin.generator.CardColumnGenerator;
 
 import java.util.List;
 
@@ -16,7 +16,8 @@ import java.util.List;
  */
 public class CardList extends CustomComponent {
 
-    private BeanContainer<Integer, Card> container = new BeanContainer<>(Card.class);
+    private final BeanContainer<Integer, Card> container = new BeanContainer<>(Card.class);
+    private static final CardColumnGenerator CARD_COLUMN_GENERATOR = new CardColumnGenerator();
 
     public CardList() {
         Table table = createTable();
@@ -39,15 +40,11 @@ public class CardList extends CustomComponent {
         });
         table.setContainerDataSource(container);
 
+        table.addGeneratedColumn("th", CARD_COLUMN_GENERATOR);
+        table.setCellStyleGenerator(CARD_COLUMN_GENERATOR);
+        table.setVisibleColumns("th");
 
-//        table.addGeneratedColumn("th", new Table.ColumnGenerator() {
-//            @Override
-//            public Object generateCell(Table source, Object itemId, Object columnId) {
-//                BeanItem<Card> a = (BeanItem<Card>)source.getItem(itemId);
-//                System.out.println(itemId+" "+ columnId+" "+a.getItemProperty(columnId));
-//                return "aa";
-//            }
-//        });
+        table.setPageLength(400);
         table.setSizeFull();
         return table;
     }

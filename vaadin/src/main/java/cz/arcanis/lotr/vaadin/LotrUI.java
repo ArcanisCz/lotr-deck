@@ -15,7 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
  */
 @SpringUI
 @Title("Addressbook")
-@Theme("valo")
+@Theme(LotrTheme.THEME_NAME)
 public class LotrUI extends UI {
     private Navigator navigator;
 

@@ -1,0 +1,30 @@
+@import "../valo/valo.scss";
+@import "colors";
+
+@mixin sphere_cell($sphereColor) {
+  background: lighten($sphereColor, 20);
+}
+
+@mixin lotrtheme {
+  @include valo;
+
+  .v-table-row-spirit {
+    @include sphere_cell($color_spirit);
+  }
+  .v-table-row-tactics {
+    @include sphere_cell($color_tactics);
+  }
+
+  .v-table-row-lore {
+    @include sphere_cell($color_lore);
+  }
+
+  .v-table-row-leadership {
+    @include sphere_cell($color_leadership);
+  }
+
+  .v-table-row-neutral {
+    @include sphere_cell($color_neutral);
+  }
+}
+

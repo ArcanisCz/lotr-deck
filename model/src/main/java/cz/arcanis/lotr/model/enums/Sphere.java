@@ -6,23 +6,13 @@ import org.apache.commons.lang3.StringUtils;
  * Created by Arcanis on 12.7.2015.
  */
 public enum Sphere {
-    LEADERSHIP("#9D489D"),
-    SPIRIT("#00B7E3"),
-    TACTICS("#B81E26"),
-    LORE("#00A652"),
-    NEUTRAL("#555555"),
-    FELLOWSHIP("#555555"),
-    BAGGINS("#555555");
-
-    private final String color;
-
-    Sphere(String color) {
-        this.color = color;
-    }
-
-    public String getColor() {
-        return color;
-    }
+    LEADERSHIP,
+    SPIRIT,
+    TACTICS,
+    LORE,
+    NEUTRAL,
+    FELLOWSHIP,
+    BAGGINS;
 
     public static Sphere getByName(String name) {
         if (StringUtils.equalsIgnoreCase(name, "leadership")) {
