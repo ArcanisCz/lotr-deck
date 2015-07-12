@@ -6,7 +6,9 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.authentication.UserCredentials;
+import org.springframework.data.mongodb.MongoDbFactory;
 import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.SimpleMongoDbFactory;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
 /**
@@ -14,7 +16,6 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
  */
 @Configuration
 @EnableVaadin
-//@EnableJpaRepositories("cz.arcanis.lotr.backend.repository")
 @EnableMongoRepositories("cz.arcanis.lotr.backend.repository")
 @ComponentScan(basePackages = {
         "cz.arcanis.lotr.vaadin",
@@ -23,14 +24,18 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 public class AppConfig {
 
     @Bean
-    public MongoClient mongo() throws Exception {
-        MongoClient mongo = new MongoClient("127.8.179.130", 27017);
-        return mongo;
+    public MongoDbFactory mongo() throws Exception {
+//        MongoClient client = new MongoClient("localhost", 27000);
+        MongoClient client = new MongoClient("127.8.179.130", 27017);
+        MongoDbFactory factory = new SimpleMongoDbFactory(client, "lotr", new UserCredentials("reader1", "pokus"));
+//        MongoClient mongo = new MongoClient("127.8.179.130", 27017);
+
+        return factory;
     }
 
     @Bean
     public MongoTemplate mongoTemplate() throws Exception {
-        MongoTemplate template = new MongoTemplate(mongo(), "lotr", new UserCredentials("reader1", "pokus"));
+        MongoTemplate template = new MongoTemplate(mongo());
         return template;
     }
 }
