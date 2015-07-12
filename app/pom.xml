@@ -56,8 +56,11 @@
         </dependency>
     </dependencies>
 
-    <!--<profiles>-->
-        <!--<profile>-->
+    <profiles>
+        <profile>
+            <properties>
+                <production.mode>true</production.mode>
+            </properties>
             <!--&lt;!&ndash; When built in OpenShift the 'openshift' profile will be used when-->
                 <!--invoking mvn. &ndash;&gt;-->
             <!--&lt;!&ndash; Use this profile for any OpenShift specific customization your app-->
@@ -65,7 +68,7 @@
             <!--&lt;!&ndash; By default that is to put the resulting archive into the 'webapps'-->
                 <!--folder. &ndash;&gt;-->
             <!--&lt;!&ndash; http://maven.apache.org/guides/mini/guide-building-for-different-environments.html &ndash;&gt;-->
-            <!--<id>openshift</id>-->
+            <id>openshift</id>
             <build>
                 <finalName>lotr</finalName>
                 <plugins>
@@ -79,7 +82,16 @@
                                 <resource>
                                     <directory>src/main/webapp/VAADIN</directory>
                                 </resource>
+                                <resource>
+                                    <filtering>true</filtering>
+                                    <directory>src/main/webapp</directory>
+                                    <includes>
+                                        <include>**/web.xml</include>
+                                    </includes>
+                                </resource>
                             </webResources>
+                            <warSourceDirectory>src/main/webapp</warSourceDirectory>
+                            <webXml>src/main/webapp/WEB-INF/web.xml</webXml>
                         </configuration>
                     </plugin>
                     <plugin>
@@ -100,8 +112,8 @@
                     </plugin>
                 </plugins>
             </build>
-        <!--</profile>-->
-    <!--</profiles>-->
+        </profile>
+    </profiles>
 
 
 </project>

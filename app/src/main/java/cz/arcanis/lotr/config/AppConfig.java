@@ -31,14 +31,14 @@ public class AppConfig {
 
     @Bean
     public Mongo mongo() throws Exception {
-//        return new MongoClient("localhost", 27000);
-        return new Mongo("127.8.179.130", 27017);
+        return new Mongo("localhost", 27000);
+//        return new Mongo("127.8.179.130", 27017);
     }
 
     @Bean
     public MongoTemplate mongoTemplate() throws Exception {
-//        MongoTemplate template = new MongoTemplate(mongo(), "lotr");
-        MongoTemplate template = new MongoTemplate(mongo(), "lotr", new UserCredentials("reader2", "pokus"));
+        MongoTemplate template = new MongoTemplate(mongo(), "lotr");
+//        MongoTemplate template = new MongoTemplate(mongo(), "lotr", new UserCredentials("reader2", "pokus"));
 
         CustomConversions customConversions = new CustomConversions(Arrays.asList(new Converter[]{new CardReadConverter()}));
         MappingMongoConverter converter = (MappingMongoConverter) template.getConverter();
