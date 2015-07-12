@@ -1,4 +1,4 @@
-package cz.arcanis.lotr.enums;
+package cz.arcanis.lotr.model.enums;
 
 /**
  * Created by Arcanis on 12.7.2015.

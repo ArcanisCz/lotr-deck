@@ -1,4 +1,4 @@
-package cz.arcanis.lotr;
+package cz.arcanis.lotr.vaadin;
 
 import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.Title;
@@ -8,10 +8,6 @@ import com.vaadin.spring.annotation.SpringUI;
 import com.vaadin.spring.navigator.SpringViewProvider;
 import com.vaadin.ui.*;
 import com.vaadin.ui.themes.ValoTheme;
-import cz.arcanis.lotr.component.MainContent;
-import cz.arcanis.lotr.component.TopMenu;
-import cz.arcanis.lotr.data.CardDataFactory;
-import cz.arcanis.lotr.view.MojeView;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**

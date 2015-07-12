@@ -1,9 +1,8 @@
-package cz.arcanis.lotr.data;
+package cz.arcanis.lotr.backend;
 
-import com.vaadin.data.util.BeanItem;
-import cz.arcanis.lotr.entity.Card;
-import cz.arcanis.lotr.enums.CardType;
-import cz.arcanis.lotr.enums.Sphere;
+import cz.arcanis.lotr.model.entity.Card;
+import cz.arcanis.lotr.model.enums.CardType;
+import cz.arcanis.lotr.model.enums.Sphere;
 import org.springframework.stereotype.Component;
 
 import java.util.LinkedList;

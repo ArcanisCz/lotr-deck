@@ -1,12 +1,11 @@
-package cz.arcanis.lotr.component;
+package cz.arcanis.lotr.vaadin.component;
 
 import com.vaadin.data.util.AbstractBeanContainer;
 import com.vaadin.data.util.BeanContainer;
 import com.vaadin.ui.CustomComponent;
 import com.vaadin.ui.Table;
 import com.vaadin.ui.VerticalLayout;
-import cz.arcanis.lotr.data.CardDataFactory;
-import cz.arcanis.lotr.entity.Card;
+import cz.arcanis.lotr.model.entity.Card;
 
 /**
  * Created by Arcanis on 12.7.2015.

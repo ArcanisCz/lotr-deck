@@ -1,4 +1,4 @@
-package cz.arcanis.lotr.component;
+package cz.arcanis.lotr.vaadin.component;
 
 import com.vaadin.ui.CustomComponent;
 import com.vaadin.ui.MenuBar;

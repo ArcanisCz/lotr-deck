@@ -1,4 +1,4 @@
-package cz.arcanis.lotr.view;
+package cz.arcanis.lotr.vaadin.view;
 
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener;
@@ -7,8 +7,8 @@ import com.vaadin.ui.Component;
 import com.vaadin.ui.CustomComponent;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Label;
-import cz.arcanis.lotr.component.CardList;
-import cz.arcanis.lotr.data.CardDataFactory;
+import cz.arcanis.lotr.backend.CardDataFactory;
+import cz.arcanis.lotr.vaadin.component.CardList;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**

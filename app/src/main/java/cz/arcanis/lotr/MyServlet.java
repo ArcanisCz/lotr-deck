@@ -1,8 +1,8 @@
 package cz.arcanis.lotr;
 
 import com.vaadin.annotations.VaadinServletConfiguration;
-import com.vaadin.server.VaadinServlet;
 import com.vaadin.spring.server.SpringVaadinServlet;
+import cz.arcanis.lotr.vaadin.LotrUI;
 
 import javax.servlet.annotation.WebServlet;
 

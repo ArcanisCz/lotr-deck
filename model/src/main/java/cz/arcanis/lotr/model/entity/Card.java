@@ -1,7 +1,7 @@
-package cz.arcanis.lotr.entity;
+package cz.arcanis.lotr.model.entity;
 
-import cz.arcanis.lotr.enums.CardType;
-import cz.arcanis.lotr.enums.Sphere;
+import cz.arcanis.lotr.model.enums.CardType;
+import cz.arcanis.lotr.model.enums.Sphere;
 
 /**
  * Created by Arcanis on 12.7.2015.

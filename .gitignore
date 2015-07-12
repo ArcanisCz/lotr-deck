@@ -3,3 +3,6 @@
 *.iml
 app/target/
 app/webapps/
+vaadin/target/
+model/target/
+backend/target/

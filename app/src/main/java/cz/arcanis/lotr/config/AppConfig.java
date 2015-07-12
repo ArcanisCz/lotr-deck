@@ -10,8 +10,8 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @EnableVaadin
 @ComponentScan(basePackages = {
-        "cz.arcanis.lotr",
-        "cz.arcanis.lotr.data"
+        "cz.arcanis.lotr.vaadin",
+        "cz.arcanis.lotr.backend"
 })
 public class AppConfig {
 }
