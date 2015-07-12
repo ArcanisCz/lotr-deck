@@ -2,6 +2,7 @@ package cz.arcanis.lotr;
 
 import com.vaadin.annotations.VaadinServletConfiguration;
 import com.vaadin.server.VaadinServlet;
+import com.vaadin.spring.server.SpringVaadinServlet;
 
 import javax.servlet.annotation.WebServlet;
 
@@ -11,5 +12,5 @@ import javax.servlet.annotation.WebServlet;
 
 @WebServlet(urlPatterns = "/*")
 @VaadinServletConfiguration(ui = LotrUI.class, productionMode = false)
-public class MyServlet extends VaadinServlet {
+public class MyServlet extends SpringVaadinServlet {
 }

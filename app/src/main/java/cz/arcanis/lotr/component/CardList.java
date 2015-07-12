@@ -32,7 +32,7 @@ public class CardList extends CustomComponent {
                 return card.getCardNumber();
             }
         });
-        container.addAll(CardDataFactory.getCards());
+//        container.addAll(CardDataFactory.getCards());
         table.setContainerDataSource(container);
 
 

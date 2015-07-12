@@ -4,6 +4,7 @@ import com.vaadin.data.util.BeanItem;
 import cz.arcanis.lotr.entity.Card;
 import cz.arcanis.lotr.enums.CardType;
 import cz.arcanis.lotr.enums.Sphere;
+import org.springframework.stereotype.Component;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -11,9 +12,10 @@ import java.util.List;
 /**
  * Created by Arcanis on 12.7.2015.
  */
+@Component
 public class CardDataFactory {
 
-    public static List<Card> getCards() {
+    public List<Card> getCards() {
         Card prvni = new Card();
         prvni.setCardNumber(1);
         prvni.setName("Aragorn");
