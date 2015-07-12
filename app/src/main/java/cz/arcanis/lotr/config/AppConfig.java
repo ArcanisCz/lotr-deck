@@ -5,7 +5,7 @@ import com.vaadin.spring.annotation.EnableVaadin;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.data.authentication.UserCredentials;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
@@ -24,11 +24,13 @@ public class AppConfig {
 
     @Bean
     public MongoClient mongo() throws Exception {
-        return new MongoClient("localhost:27000");
+        MongoClient mongo = new MongoClient("localhost:27000");
+        return mongo;
     }
 
     @Bean
     public MongoTemplate mongoTemplate() throws Exception {
-        return new MongoTemplate(mongo(), "lotr");
+        MongoTemplate template = new MongoTemplate(mongo(), "lotr", new UserCredentials("admin", "szwFfL4P3u4g"));
+        return template;
     }
 }
