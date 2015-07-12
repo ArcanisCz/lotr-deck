@@ -15,6 +15,6 @@ public class LotrUI extends UI {
 
     @Override
     protected void init(VaadinRequest vaadinRequest) {
-        setContent(new Label("aaa"));
+        setContent(new Label("aaaaa"));
     }
 }
