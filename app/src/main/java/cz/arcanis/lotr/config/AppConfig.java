@@ -2,12 +2,17 @@ package cz.arcanis.lotr.config;
 
 import com.mongodb.MongoClient;
 import com.vaadin.spring.annotation.EnableVaadin;
+import cz.arcanis.lotr.model.entity.converter.CardReadConverter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.data.authentication.UserCredentials;
+import org.springframework.core.convert.converter.Converter;
 import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.convert.CustomConversions;
+import org.springframework.data.mongodb.core.convert.MappingMongoConverter;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
+
+import java.util.Arrays;
 
 /**
  * Created by Arcanis on 12.7.2015.
@@ -30,7 +35,15 @@ public class AppConfig {
 
     @Bean
     public MongoTemplate mongoTemplate() throws Exception {
+        MongoTemplate template = new MongoTemplate(mongo(), "lotr");
+
+        CustomConversions customConversions = new CustomConversions(Arrays.asList(new Converter[]{new CardReadConverter()}));
+        MappingMongoConverter converter = (MappingMongoConverter)template.getConverter();
+        converter.setCustomConversions(customConversions);
+
+        converter.afterPropertiesSet();
+
 //        return new MongoTemplate(mongo(), "lotr", new UserCredentials("reader1", "pokus"));
-        return new MongoTemplate(mongo(), "lotr");
+        return template;
     }
 }

@@ -14,7 +14,7 @@ import java.util.List;
  */
 public class CardList extends CustomComponent {
 
-    private BeanContainer<String, Card> container = new BeanContainer<>(Card.class);
+    private BeanContainer<Integer, Card> container = new BeanContainer<>(Card.class);
 
     public CardList() {
         Table table = createTable();
@@ -29,9 +29,9 @@ public class CardList extends CustomComponent {
 
     private Table createTable() {
         Table table = new Table();
-        container.setBeanIdResolver(new AbstractBeanContainer.BeanIdResolver<String, Card>() {
+        container.setBeanIdResolver(new AbstractBeanContainer.BeanIdResolver<Integer, Card>() {
             @Override
-            public String getIdForBean(Card card) {
+            public Integer getIdForBean(Card card) {
                 return card.getId();
             }
         });

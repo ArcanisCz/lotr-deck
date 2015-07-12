@@ -1,5 +1,8 @@
 package cz.arcanis.lotr.model.entity;
 
+import cz.arcanis.lotr.model.enums.CardSet;
+import cz.arcanis.lotr.model.enums.Sphere;
+import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.persistence.Id;
@@ -9,19 +12,22 @@ import javax.persistence.Id;
  */
 @Document(collection = "cards")
 public class Card {
-    private String name;
-
     @Id
-    private String id;
+    private ObjectId mongoId;
 
-    public String getId() {
+    private String name;
+    private Integer id;
+    private CardSet set;
+    private Boolean unique;
+    private Sphere sphere;
+
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
-
 
     public String getName() {
         return name;
@@ -31,4 +37,35 @@ public class Card {
         this.name = name;
     }
 
+    public ObjectId getMongoId() {
+        return mongoId;
+    }
+
+    public void setMongoId(ObjectId mongoId) {
+        this.mongoId = mongoId;
+    }
+
+    public CardSet getSet() {
+        return set;
+    }
+
+    public void setSet(CardSet set) {
+        this.set = set;
+    }
+
+    public Sphere getSphere() {
+        return sphere;
+    }
+
+    public void setSphere(Sphere sphere) {
+        this.sphere = sphere;
+    }
+
+    public Boolean getUnique() {
+        return unique;
+    }
+
+    public void setUnique(Boolean unique) {
+        this.unique = unique;
+    }
 }
