@@ -24,7 +24,7 @@ public class AppConfig {
 
     @Bean
     public MongoClient mongo() throws Exception {
-        MongoClient mongo = new MongoClient("localhost:27000");
+        MongoClient mongo = new MongoClient("localhost");
         return mongo;
     }
 
