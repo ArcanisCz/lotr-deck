@@ -1,5 +1,6 @@
 package cz.arcanis.lotr.config;
 
+import com.mongodb.Mongo;
 import com.mongodb.MongoClient;
 import com.vaadin.spring.annotation.EnableVaadin;
 import cz.arcanis.lotr.model.entity.converter.CardReadConverter;
@@ -29,9 +30,9 @@ public class AppConfig {
 
 
     @Bean
-    public MongoClient mongo() throws Exception {
+    public Mongo mongo() throws Exception {
 //        return new MongoClient("localhost", 27000);
-        return new MongoClient("127.8.179.130", 27017);
+        return new Mongo("127.8.179.130", 27017);
     }
 
     @Bean
