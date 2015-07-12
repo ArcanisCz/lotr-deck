@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.convert.converter.Converter;
+import org.springframework.data.authentication.UserCredentials;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.convert.CustomConversions;
 import org.springframework.data.mongodb.core.convert.MappingMongoConverter;
@@ -29,21 +30,21 @@ public class AppConfig {
 
     @Bean
     public MongoClient mongo() throws Exception {
-        return new MongoClient("localhost", 27000);
-//        return new MongoClient("127.8.179.130", 27017);
+//        return new MongoClient("localhost", 27000);
+        return new MongoClient("127.8.179.130", 27017);
     }
 
     @Bean
     public MongoTemplate mongoTemplate() throws Exception {
-        MongoTemplate template = new MongoTemplate(mongo(), "lotr");
+//        MongoTemplate template = new MongoTemplate(mongo(), "lotr");
+        MongoTemplate template = new MongoTemplate(mongo(), "lotr", new UserCredentials("reader1", "pokus"));
 
         CustomConversions customConversions = new CustomConversions(Arrays.asList(new Converter[]{new CardReadConverter()}));
-        MappingMongoConverter converter = (MappingMongoConverter)template.getConverter();
+        MappingMongoConverter converter = (MappingMongoConverter) template.getConverter();
         converter.setCustomConversions(customConversions);
 
         converter.afterPropertiesSet();
 
-//        return new MongoTemplate(mongo(), "lotr", new UserCredentials("reader1", "pokus"));
         return template;
     }
 }
