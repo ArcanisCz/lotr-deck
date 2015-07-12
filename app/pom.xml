@@ -17,6 +17,19 @@
 
     <dependencies>
         <dependency>
+            <groupId>cz.arcanis</groupId>
+            <artifactId>model</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>cz.arcanis</groupId>
+            <artifactId>vaadin</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>cz.arcanis</groupId>
+            <artifactId>backend</artifactId>
+        </dependency>
+
+        <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
         </dependency>
