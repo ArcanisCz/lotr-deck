@@ -30,7 +30,7 @@ public class AppConfig {
 
     @Bean
     public MongoTemplate mongoTemplate() throws Exception {
-        MongoTemplate template = new MongoTemplate(mongo(), "localhost", new UserCredentials("admin", "szwFfL4P3u4g"));
+        MongoTemplate template = new MongoTemplate(mongo(), "localhost", new UserCredentials("reader1", "pokus"));
         return template;
     }
 }
