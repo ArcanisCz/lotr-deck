@@ -24,7 +24,7 @@ public class MojeView extends CustomComponent implements View {
     @Override
     public void enter(ViewChangeListener.ViewChangeEvent viewChangeEvent) {
         Component left = new Label("left");
-        Component right = new CardList();
+        CardList right = new CardList();
 
         HorizontalLayout layout = new HorizontalLayout();
 
@@ -40,6 +40,6 @@ public class MojeView extends CustomComponent implements View {
         setCompositionRoot(layout);
         setSizeFull();
 
-        System.out.println(cardDataFactory);
+        right.setCards(cardDataFactory.getCards());
     }
 }

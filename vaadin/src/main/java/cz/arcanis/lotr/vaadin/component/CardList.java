@@ -7,10 +7,15 @@ import com.vaadin.ui.Table;
 import com.vaadin.ui.VerticalLayout;
 import cz.arcanis.lotr.model.entity.Card;
 
+import java.util.List;
+
 /**
  * Created by Arcanis on 12.7.2015.
  */
 public class CardList extends CustomComponent {
+
+    private BeanContainer<String, Card> container = new BeanContainer<>(Card.class);
+
     public CardList() {
         Table table = createTable();
         VerticalLayout layout = new VerticalLayout();
@@ -24,19 +29,21 @@ public class CardList extends CustomComponent {
 
     private Table createTable() {
         Table table = new Table();
-        BeanContainer<Integer, Card> container = new BeanContainer<>(Card.class);
-        container.setBeanIdResolver(new AbstractBeanContainer.BeanIdResolver<Integer, Card>() {
+        container.setBeanIdResolver(new AbstractBeanContainer.BeanIdResolver<String, Card>() {
             @Override
-            public Integer getIdForBean(Card card) {
-                return card.getCardNumber();
+            public String getIdForBean(Card card) {
+                return card.getId();
             }
         });
 //        container.addAll(CardDataFactory.getCards());
         table.setContainerDataSource(container);
 
-
         table.setSizeFull();
         return table;
+    }
 
+
+    public void setCards(List<Card> cards) {
+        container.addAll(cards);
     }
 }
