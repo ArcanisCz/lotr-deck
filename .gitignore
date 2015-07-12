@@ -7,3 +7,4 @@ vaadin/target/
 model/target/
 backend/target/
 webapps/
+app/src/main/webapp/VAADIN/themes/lotrtheme/styles.css
