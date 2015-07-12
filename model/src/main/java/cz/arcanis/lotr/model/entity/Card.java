@@ -19,8 +19,13 @@ public class Card {
     private String name;
     private Integer id;
     private CardSet set;
+    private Integer setId;
     private Boolean unique;
     private Sphere sphere;
+    private String text;
+    private String img;
+    private Integer packQuantity;
+    private Integer maxQuantity;
 
     public Integer getId() {
         return id;
@@ -70,8 +75,48 @@ public class Card {
         this.unique = unique;
     }
 
+    public Integer getSetId() {
+        return setId;
+    }
+
+    public void setSetId(Integer setId) {
+        this.setId = setId;
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
+    }
+
+    public Integer getPackQuantity() {
+        return packQuantity;
+    }
+
+    public void setPackQuantity(Integer packQuantity) {
+        this.packQuantity = packQuantity;
+    }
+
+    public Integer getMaxQuantity() {
+        return maxQuantity;
+    }
+
+    public void setMaxQuantity(Integer maxQuantity) {
+        this.maxQuantity = maxQuantity;
+    }
+
     @Override
     public String toString() {
-        return  ToStringBuilder.reflectionToString(this);
+        return ToStringBuilder.reflectionToString(this);
     }
 }

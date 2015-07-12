@@ -6,5 +6,5 @@ package cz.arcanis.lotr.model.entity.interfaces;
 public interface HasResourceCost {
     Integer getResourceCost();
 
-    void setResourceCost();
+    void setResourceCost(Integer resourceCost);
 }

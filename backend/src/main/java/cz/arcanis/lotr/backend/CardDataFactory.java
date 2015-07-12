@@ -21,25 +21,6 @@ public class CardDataFactory {
     private CardsRepository cardsRepository;
 
     public List<Card> getCards() {
-//        Card prvni = new Card();
-//        prvni.setCardNumber(1);
-//        prvni.setName("Aragorn");
-//        prvni.setCardType(CardType.ALLY);
-//        prvni.setCost(11);
-//        prvni.setSphere(Sphere.LEADERSHIP);
-//
-//
-//        Card druha = new Card();
-//        druha.setCardNumber(2);
-//        druha.setName("Galadriea");
-//        druha.setCardType(CardType.ALLY);
-//        druha.setCost(12);
-//        druha.setSphere(Sphere.LORE);
-//
-//        List<Card> list = new LinkedList<>();
-//        list.add(prvni);
-//        list.add(druha);
-//        return list;
-        return cardsRepository.findAll();
+        return cardsRepository.findBySet("Core");
     }
 }

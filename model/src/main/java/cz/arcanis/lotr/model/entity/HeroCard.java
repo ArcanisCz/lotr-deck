@@ -2,15 +2,19 @@ package cz.arcanis.lotr.model.entity;
 
 import cz.arcanis.lotr.model.entity.interfaces.HasBattleStats;
 import cz.arcanis.lotr.model.entity.interfaces.HasThreatCost;
+import cz.arcanis.lotr.model.entity.interfaces.HasTraits;
+
+import java.util.List;
 
 /**
  * Created by Arcanis on 12.7.2015.
  */
-public class HeroCard extends Card implements HasBattleStats, HasThreatCost {
+public class HeroCard extends Card implements HasBattleStats, HasThreatCost, HasTraits {
     private Integer threatCost;
     private Integer defense;
     private Integer attack;
     private Integer hp;
+    private List<String> traits;
 
 
     @Override
@@ -51,5 +55,15 @@ public class HeroCard extends Card implements HasBattleStats, HasThreatCost {
     @Override
     public void setHp(Integer hp) {
         this.hp = hp;
+    }
+
+    @Override
+    public List<String> getTraits() {
+        return traits;
+    }
+
+    @Override
+    public void setTraits(List<String> traits) {
+        this.traits = traits;
     }
 }

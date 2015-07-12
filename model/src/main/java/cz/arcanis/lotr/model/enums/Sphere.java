@@ -10,7 +10,9 @@ public enum Sphere {
     SPIRIT("#00B7E3"),
     TACTICS("#B81E26"),
     LORE("#00A652"),
-    NEUTRAL("#555555");
+    NEUTRAL("#555555"),
+    FELLOWSHIP("#555555"),
+    BAGGINS("#555555");
 
     private final String color;
 
@@ -33,6 +35,10 @@ public enum Sphere {
             return LORE;
         }else if (StringUtils.equalsIgnoreCase(name, "neutral")) {
             return NEUTRAL;
+        }else if (StringUtils.equalsIgnoreCase(name, "fellowship")) {
+            return FELLOWSHIP;
+        }else if (StringUtils.equalsIgnoreCase(name, "fellowship")) {
+            return BAGGINS;
         }
         return null;
     }

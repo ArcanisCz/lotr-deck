@@ -8,12 +8,20 @@ public enum FieldName {
     ID("id"),
     NAME("name"),
     SET("set"),
+    SET_ID("num"),
     UNIQUE("unique"),
     SPHERE("sphere"),
     ATTACK("atk"),
     DEFENSE("def"),
     HP("hp"),
-    THREAT_COST("th");
+    THREAT_COST("th"),
+    RESOURCE_COST("cost"),
+    TRAITS("trait"),
+    TEXT("text"),
+    IMG("img"),
+    IMG_FOLDER("imgfolder"),
+    PACK_QUANTITY("packquantity"),
+    MAX_QUANTITY("max");
 
     private final String name;
 
