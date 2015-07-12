@@ -39,11 +39,11 @@ public class AppConfig {
 //        MongoTemplate template = new MongoTemplate(mongo(), "lotr");
         MongoTemplate template = new MongoTemplate(mongo(), "lotr", new UserCredentials("reader1", "pokus"));
 
-        CustomConversions customConversions = new CustomConversions(Arrays.asList(new Converter[]{new CardReadConverter()}));
-        MappingMongoConverter converter = (MappingMongoConverter) template.getConverter();
-        converter.setCustomConversions(customConversions);
-
-        converter.afterPropertiesSet();
+//        CustomConversions customConversions = new CustomConversions(Arrays.asList(new Converter[]{new CardReadConverter()}));
+//        MappingMongoConverter converter = (MappingMongoConverter) template.getConverter();
+//        converter.setCustomConversions(customConversions);
+//
+//        converter.afterPropertiesSet();
 
         return template;
     }
