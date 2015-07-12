@@ -11,5 +11,5 @@ import javax.servlet.annotation.WebServlet;
 
 @WebServlet(urlPatterns = "/*")
 @VaadinServletConfiguration(ui = LotrUI.class, productionMode = false)
-public class MyUIServlet extends VaadinServlet {
+public class MyServlet extends VaadinServlet {
 }

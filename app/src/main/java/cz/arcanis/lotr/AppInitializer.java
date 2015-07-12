@@ -15,7 +15,7 @@ public class AppInitializer implements WebApplicationInitializer {
     @Override
     public void onStartup(ServletContext servletContext) throws ServletException {
 
-        ServletRegistration.Dynamic dispatcher = servletContext.addServlet("DispatcherServlet", new MyUIServlet());
+        ServletRegistration.Dynamic dispatcher = servletContext.addServlet("DispatcherServlet", new MyServlet());
         dispatcher.setLoadOnStartup(1);
         dispatcher.addMapping("/*");
     }
