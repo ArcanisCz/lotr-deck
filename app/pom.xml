@@ -56,26 +56,6 @@
         </dependency>
     </dependencies>
 
-    <profiles>
-        <profile>
-            <id>default</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-            <properties>
-                <production.mode>false</production.mode>
-                <profile.directory>src/main/profiles/localhost</profile.directory>
-            </properties>
-        </profile>
-        <profile>
-            <id>openshift</id>
-            <properties>
-                <production.mode>true</production.mode>
-                <profile.directory>src/main/profiles/openshift</profile.directory>
-            </properties>
-        </profile>
-    </profiles>
-
     <build>
         <finalName>lotr</finalName>
         <plugins>
