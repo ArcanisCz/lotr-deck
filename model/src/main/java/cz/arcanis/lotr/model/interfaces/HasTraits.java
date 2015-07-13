@@ -1,4 +1,4 @@
-package cz.arcanis.lotr.model.entity.interfaces;
+package cz.arcanis.lotr.model.interfaces;
 
 import java.util.List;
 

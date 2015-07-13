@@ -2,7 +2,7 @@ package cz.arcanis.lotr.config;
 
 import com.mongodb.Mongo;
 import com.vaadin.spring.annotation.EnableVaadin;
-import cz.arcanis.lotr.model.entity.converter.CardReadConverter;
+import cz.arcanis.lotr.backend.converter.CardReadConverter;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;

@@ -1,8 +1,8 @@
 package cz.arcanis.lotr.model.entity;
 
-import cz.arcanis.lotr.model.entity.interfaces.HasBattleStats;
-import cz.arcanis.lotr.model.entity.interfaces.HasThreatCost;
-import cz.arcanis.lotr.model.entity.interfaces.HasTraits;
+import cz.arcanis.lotr.model.interfaces.HasBattleStats;
+import cz.arcanis.lotr.model.interfaces.HasThreatCost;
+import cz.arcanis.lotr.model.interfaces.HasTraits;
 
 import java.util.List;
 

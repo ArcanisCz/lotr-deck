@@ -1,13 +1,13 @@
-package cz.arcanis.lotr.model.entity.converter;
+package cz.arcanis.lotr.backend.converter;
 
 import com.mongodb.BasicDBObject;
 import com.mongodb.DBObject;
 import cz.arcanis.lotr.model.entity.Card;
 import cz.arcanis.lotr.model.entity.HeroCard;
-import cz.arcanis.lotr.model.entity.interfaces.HasBattleStats;
-import cz.arcanis.lotr.model.entity.interfaces.HasResourceCost;
-import cz.arcanis.lotr.model.entity.interfaces.HasThreatCost;
-import cz.arcanis.lotr.model.entity.interfaces.HasTraits;
+import cz.arcanis.lotr.model.interfaces.HasBattleStats;
+import cz.arcanis.lotr.model.interfaces.HasResourceCost;
+import cz.arcanis.lotr.model.interfaces.HasThreatCost;
+import cz.arcanis.lotr.model.interfaces.HasTraits;
 import cz.arcanis.lotr.model.enums.CardSet;
 import cz.arcanis.lotr.model.enums.CardType;
 import cz.arcanis.lotr.model.enums.FieldName;

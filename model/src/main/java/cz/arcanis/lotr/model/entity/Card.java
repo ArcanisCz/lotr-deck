@@ -6,14 +6,11 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.persistence.Id;
-
 /**
  * Created by Arcanis on 12.7.2015.
  */
 @Document(collection = "cards")
 public class Card {
-    @Id
     private ObjectId mongoId;
 
     private String name;
