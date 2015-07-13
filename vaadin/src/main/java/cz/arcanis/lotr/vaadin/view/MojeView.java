@@ -40,8 +40,6 @@ public class MojeView extends CustomComponent implements View {
         right.setSizeFull();
         left.setSizeFull();
 
-        center.setImmediate(true);
-        right.setImmediate(true);
 
         setCompositionRoot(layout);
         setSizeFull();

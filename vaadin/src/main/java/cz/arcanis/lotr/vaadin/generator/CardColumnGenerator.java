@@ -2,7 +2,6 @@ package cz.arcanis.lotr.vaadin.generator;
 
 import com.vaadin.data.Item;
 import com.vaadin.data.util.BeanItem;
-import com.vaadin.event.ItemClickEvent;
 import com.vaadin.event.LayoutEvents;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Label;
@@ -11,8 +10,6 @@ import com.vaadin.ui.VerticalLayout;
 import cz.arcanis.lotr.model.entity.Card;
 import cz.arcanis.lotr.model.enums.Sphere;
 import cz.arcanis.lotr.vaadin.LotrTheme;
-
-import java.util.Collection;
 
 /**
  * Created by Arcanis on 12.7.2015.
@@ -27,10 +24,7 @@ public class CardColumnGenerator implements Table.ColumnGenerator, Table.CellSty
             layout.addLayoutClickListener(new LayoutEvents.LayoutClickListener() {
                 @Override
                 public void layoutClick(LayoutEvents.LayoutClickEvent event) {
-                    Collection<? extends ItemClickEvent.ItemClickListener> listeners = (Collection<? extends ItemClickEvent.ItemClickListener>) source.getListeners(ItemClickEvent.class);
-                    for(ItemClickEvent.ItemClickListener listener : listeners){
-                        listener.itemClick(new ItemClickEvent(source, source.getItem(itemId), itemId, columnId, null));
-                    }
+                    source.select(itemId);
                 }
             });
             return layout;

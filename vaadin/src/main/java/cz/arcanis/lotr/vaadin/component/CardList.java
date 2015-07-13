@@ -5,7 +5,6 @@ import com.vaadin.data.Property;
 import com.vaadin.data.util.AbstractBeanContainer;
 import com.vaadin.data.util.BeanContainer;
 import com.vaadin.data.util.BeanItem;
-import com.vaadin.event.ItemClickEvent;
 import com.vaadin.ui.CustomComponent;
 import com.vaadin.ui.Table;
 import com.vaadin.ui.VerticalLayout;
@@ -49,9 +48,6 @@ public class CardList extends CustomComponent {
         layout.setExpandRatio(table, 1);
         layout.setSizeFull();
 
-        table.setImmediate(true);
-        layout.setImmediate(true);
-
         setCompositionRoot(layout);
     }
 
@@ -71,12 +67,7 @@ public class CardList extends CustomComponent {
 
         table.setMultiSelect(false);
         table.setSelectable(true);
-        table.addItemClickListener(new ItemClickEvent.ItemClickListener() {
-            @Override
-            public void itemClick(ItemClickEvent event) {
-                table.select(event.getItemId());
-            }
-        });
+        table.setImmediate(true);
 
         table.addValueChangeListener(new Property.ValueChangeListener() {
             @Override
