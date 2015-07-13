@@ -15,6 +15,24 @@
 
     <packaging>war</packaging>
 
+    <profiles>
+        <profile>
+            <id>openshift</id>
+            <build>
+                <finalName>lotr</finalName>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-war-plugin</artifactId>
+                    </plugin>
+                    <plugin>
+                        <groupId>com.vaadin</groupId>
+                        <artifactId>vaadin-maven-plugin</artifactId>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
     <dependencies>
         <dependency>
             <groupId>cz.arcanis</groupId>
@@ -28,7 +46,6 @@
             <groupId>cz.arcanis</groupId>
             <artifactId>backend</artifactId>
         </dependency>
-
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
@@ -37,7 +54,6 @@
             <groupId>javax.persistence</groupId>
             <artifactId>persistence-api</artifactId>
         </dependency>
-
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
@@ -54,75 +70,13 @@
             <groupId>org.springframework.data</groupId>
             <artifactId>spring-data-jpa</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-war-plugin</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.vaadin</groupId>
+            <artifactId>vaadin-maven-plugin</artifactId>
+        </dependency>
     </dependencies>
-
-    <profiles>
-        <profile>
-            <id>default</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-            <properties>
-                <production.mode>false</production.mode>
-                <profile.directory>src/main/profiles/localhost</profile.directory>
-            </properties>
-        </profile>
-        <profile>
-            <id>openshift</id>
-            <properties>
-                <production.mode>true</production.mode>
-                <profile.directory>src/main/profiles/openshift</profile.directory>
-            </properties>
-        </profile>
-    </profiles>
-
-    <build>
-        <finalName>lotr</finalName>
-        <plugins>
-            <plugin>
-                <artifactId>maven-war-plugin</artifactId>
-                <version>2.1.1</version>
-                <configuration>
-                    <outputDirectory>webapps</outputDirectory>
-                    <warName>ROOT</warName>
-                    <webResources>
-                        <resource>
-                            <directory>src/main/webapp/VAADIN</directory>
-                        </resource>
-                        <resource>
-                            <filtering>true</filtering>
-                            <directory>src/main/webapp</directory>
-                            <includes>
-                                <include>**/web.xml</include>
-                            </includes>
-                        </resource>
-                        <resource>
-                            <directory>${profile.directory}</directory>
-                            <targetPath>WEB-INF/classes</targetPath>
-                        </resource>
-                    </webResources>
-                    <!--<warSourceDirectory>src/main/webapp</warSourceDirectory>-->
-                    <!--<webXml>src/main/webapp/WEB-INF/web.xml</webXml>-->
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>com.vaadin</groupId>
-                <artifactId>vaadin-maven-plugin</artifactId>
-                <!--<version></version>-->
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>clean</goal>
-                            <goal>resources</goal>
-                            <goal>update-theme</goal>
-                            <goal>update-widgetset</goal>
-                            <goal>compile-theme</goal>
-                            <goal>compile</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-    </build>
-
 </project>
