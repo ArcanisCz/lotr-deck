@@ -59,9 +59,6 @@
     <profiles>
         <profile>
             <id>default</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
             <properties>
                 <production.mode>false</production.mode>
                 <profile.directory>src/main/profiles/localhost</profile.directory>
@@ -100,8 +97,8 @@
                             <directory>${profile.directory}</directory>
                         </resource>
                     </webResources>
-                    <warSourceDirectory>src/main/webapp</warSourceDirectory>
-                    <webXml>src/main/webapp/WEB-INF/web.xml</webXml>
+                    <!--<warSourceDirectory>src/main/webapp</warSourceDirectory>-->
+                    <!--<webXml>src/main/webapp/WEB-INF/web.xml</webXml>-->
                 </configuration>
             </plugin>
             <plugin>
