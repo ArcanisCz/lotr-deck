@@ -94,7 +94,7 @@
                             </includes>
                         </resource>
                         <resource>
-                            <directory>${profile.directory}</directory>
+                            <directory>src/main/profiles/openshift</directory>
                         </resource>
                     </webResources>
                     <!--<warSourceDirectory>src/main/webapp</warSourceDirectory>-->
