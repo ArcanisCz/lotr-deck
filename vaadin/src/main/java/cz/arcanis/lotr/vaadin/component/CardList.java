@@ -48,6 +48,10 @@ public class CardList extends CustomComponent {
 
         layout.setExpandRatio(table, 1);
         layout.setSizeFull();
+
+        table.setImmediate(true);
+        layout.setImmediate(true);
+
         setCompositionRoot(layout);
     }
 
@@ -64,8 +68,6 @@ public class CardList extends CustomComponent {
         table.addGeneratedColumn("th", CARD_COLUMN_GENERATOR);
         table.setCellStyleGenerator(CARD_COLUMN_GENERATOR);
         table.setVisibleColumns("th");
-        table.setImmediate(true);
-
 
         table.setMultiSelect(false);
         table.setSelectable(true);

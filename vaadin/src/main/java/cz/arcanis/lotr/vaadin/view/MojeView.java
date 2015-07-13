@@ -3,10 +3,7 @@ package cz.arcanis.lotr.vaadin.view;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener;
 import com.vaadin.spring.annotation.SpringView;
-import com.vaadin.ui.Component;
-import com.vaadin.ui.CustomComponent;
-import com.vaadin.ui.HorizontalLayout;
-import com.vaadin.ui.Label;
+import com.vaadin.ui.*;
 import cz.arcanis.lotr.backend.CardDataFactory;
 import cz.arcanis.lotr.vaadin.component.CardDisplay;
 import cz.arcanis.lotr.vaadin.component.CardList;
@@ -25,9 +22,9 @@ public class MojeView extends CustomComponent implements View {
 
     @Override
     public void enter(ViewChangeListener.ViewChangeEvent viewChangeEvent) {
-        Component left = new Label("left");
+        final Component left = new Label("left");
         final CardDisplay center = new CardDisplay();
-        CardList right = new CardList();
+        final CardList right = new CardList();
 
         HorizontalLayout layout = new HorizontalLayout();
 
@@ -37,11 +34,14 @@ public class MojeView extends CustomComponent implements View {
 
         layout.setSizeFull();
         layout.setExpandRatio(left, 1);
-        layout.setExpandRatio(center, 1);
+        center.setWidth(400, Unit.PIXELS);
+        center.setHeight(100, Unit.PERCENTAGE);
         layout.setExpandRatio(right, 1);
         right.setSizeFull();
-        center.setSizeFull();
         left.setSizeFull();
+
+        center.setImmediate(true);
+        right.setImmediate(true);
 
         setCompositionRoot(layout);
         setSizeFull();

@@ -10,20 +10,24 @@ import cz.arcanis.lotr.model.entity.Card;
  */
 public class CardDisplay extends CustomComponent{
 
-    AbstractLayout layout = new HorizontalLayout();
+    HorizontalLayout layout = new HorizontalLayout();
 
     public CardDisplay() {
         setImmediate(true);
         layout.setImmediate(true);
+        layout.setSizeFull();
 
         setCompositionRoot(layout);
     }
 
     public void setCard(Card card){
-        Resource resource = new ExternalResource("http://www.cardgamedb.com/forums/uploads/"+card.getImg());
-        Image image = new Image(null, resource);
-
         layout.removeAllComponents();
-        layout.addComponent(image);
+        if(card != null){
+            Resource resource = new ExternalResource("http://www.cardgamedb.com/forums/uploads/"+card.getImg());
+            Image image = new Image(null, resource);
+            image.setImmediate(true);
+            layout.addComponent(image);
+            layout.setComponentAlignment(image, Alignment.MIDDLE_CENTER);
+        }
     }
 }

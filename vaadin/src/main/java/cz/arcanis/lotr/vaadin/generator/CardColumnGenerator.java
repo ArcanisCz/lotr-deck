@@ -71,8 +71,8 @@ public class CardColumnGenerator implements Table.ColumnGenerator, Table.CellSty
 
         lines.addStyleName(LotrTheme.CURSOR_POINTER);
         lines.addComponent(firstLine);
-        lines.addComponent(secondLine);
-        lines.addComponent(thirdLine);
+//        lines.addComponent(secondLine);
+//        lines.addComponent(thirdLine);
         return lines;
     }
 
