@@ -26,5 +26,13 @@
   .v-table-row-neutral {
     @include sphere_cell($color_neutral);
   }
+
+  .v-tooltip .v-tooltip-text {
+    max-height: 100em;
+  }
+
+  .cursor-pointer {
+    cursor: pointer;
+  }
 }
 

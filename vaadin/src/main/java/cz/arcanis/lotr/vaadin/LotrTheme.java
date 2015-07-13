@@ -13,4 +13,6 @@ public class LotrTheme extends ValoTheme{
     public static final String LORE = "lore";
     public static final String SPIRIT = "spirit";
     public static final String NEUTRAL = "neutral";
+
+    public static final String CURSOR_POINTER = "cursor-pointer";
 }
