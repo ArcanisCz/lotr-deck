@@ -58,62 +58,69 @@
 
     <profiles>
         <profile>
+            <id>default</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <production.mode>false</production.mode>
+                <profile.directory>src/main/profiles/localhost</profile.directory>
+            </properties>
+        </profile>
+        <profile>
+            <id>openshift</id>
             <properties>
                 <production.mode>true</production.mode>
+                <profile.directory>src/main/profiles/openshift</profile.directory>
             </properties>
-            <!--&lt;!&ndash; When built in OpenShift the 'openshift' profile will be used when-->
-                <!--invoking mvn. &ndash;&gt;-->
-            <!--&lt;!&ndash; Use this profile for any OpenShift specific customization your app-->
-                <!--will need. &ndash;&gt;-->
-            <!--&lt;!&ndash; By default that is to put the resulting archive into the 'webapps'-->
-                <!--folder. &ndash;&gt;-->
-            <!--&lt;!&ndash; http://maven.apache.org/guides/mini/guide-building-for-different-environments.html &ndash;&gt;-->
-            <id>openshift</id>
-            <build>
-                <finalName>lotr</finalName>
-                <plugins>
-                    <plugin>
-                        <artifactId>maven-war-plugin</artifactId>
-                        <version>2.1.1</version>
-                        <configuration>
-                            <outputDirectory>webapps</outputDirectory>
-                            <warName>ROOT</warName>
-                            <webResources>
-                                <resource>
-                                    <directory>src/main/webapp/VAADIN</directory>
-                                </resource>
-                                <resource>
-                                    <filtering>true</filtering>
-                                    <directory>src/main/webapp</directory>
-                                    <includes>
-                                        <include>**/web.xml</include>
-                                    </includes>
-                                </resource>
-                            </webResources>
-                            <warSourceDirectory>src/main/webapp</warSourceDirectory>
-                            <webXml>src/main/webapp/WEB-INF/web.xml</webXml>
-                        </configuration>
-                    </plugin>
-                    <plugin>
-                        <groupId>com.vaadin</groupId>
-                        <artifactId>vaadin-maven-plugin</artifactId>
-                        <executions>
-                            <execution>
-                                <goals>
-                                    <goal>clean</goal>
-                                    <goal>resources</goal>
-                                    <goal>update-theme</goal>
-                                    <goal>update-widgetset</goal>
-                                    <goal>compile-theme</goal>
-                                    <goal>compile</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
         </profile>
     </profiles>
 
+    <build>
+        <finalName>lotr</finalName>
+        <plugins>
+            <plugin>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>2.1.1</version>
+                <configuration>
+                    <outputDirectory>webapps</outputDirectory>
+                    <warName>ROOT</warName>
+                    <webResources>
+                        <resource>
+                            <directory>src/main/webapp/VAADIN</directory>
+                        </resource>
+                        <resource>
+                            <filtering>true</filtering>
+                            <directory>src/main/webapp</directory>
+                            <includes>
+                                <include>**/web.xml</include>
+                            </includes>
+                        </resource>
+                        <resource>
+                            <directory>${profile.directory}</directory>
+                        </resource>
+                    </webResources>
+                    <warSourceDirectory>src/main/webapp</warSourceDirectory>
+                    <webXml>src/main/webapp/WEB-INF/web.xml</webXml>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>com.vaadin</groupId>
+                <artifactId>vaadin-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>clean</goal>
+                            <goal>resources</goal>
+                            <goal>update-theme</goal>
+                            <goal>update-widgetset</goal>
+                            <goal>compile-theme</goal>
+                            <goal>compile</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
