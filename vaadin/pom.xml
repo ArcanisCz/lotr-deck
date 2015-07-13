@@ -43,6 +43,10 @@
             <groupId>com.vaadin</groupId>
             <artifactId>vaadin-spring</artifactId>
         </dependency>
+        <!--<dependency>-->
+            <!--<groupId>org.percepta.mgrankvi.vne</groupId>-->
+            <!--<artifactId>preloader</artifactId>-->
+        <!--</dependency>-->
     </dependencies>
 
     

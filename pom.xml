@@ -210,6 +210,11 @@
                 <artifactId>vaadin-maven-plugin</artifactId>
                 <version>${vaadin.version}</version>
             </dependency>
+            <!--<dependency>-->
+                <!--<groupId>org.percepta.mgrankvi.vne</groupId>-->
+                <!--<artifactId>preloader</artifactId>-->
+                <!--<version>0.1.0</version>-->
+            <!--</dependency>-->
         </dependencies>
     </dependencyManagement>
 

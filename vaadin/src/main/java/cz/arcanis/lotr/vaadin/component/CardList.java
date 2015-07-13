@@ -105,7 +105,14 @@ public class CardList extends CustomComponent {
     }
 
     public void setCards(List<Card> cards) {
+
         container.addAll(cards);
+
+//        ImagePreloader preloader = new ImagePreloader();
+//        for(Card card : cards){
+//            preloader.preloadImage("http://www.cardgamedb.com/forums/uploads/"+card.getImg());
+//        }
+
     }
 
     public void addCardSelectedListener(CardSelectedEvent.CardSelectedListener listener) {
