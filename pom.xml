@@ -24,9 +24,27 @@
         <maven.compiler.target>1.7</maven.compiler.target>
 
         <vaadin.version>7.5.1</vaadin.version>
-
-        <production.mode>false</production.mode>
     </properties>
+
+    <profiles>
+        <profile>
+            <id>default</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <production.mode>false</production.mode>
+                <profile.directory>src/main/profiles/localhost</profile.directory>
+            </properties>
+        </profile>
+        <profile>
+            <id>openshift</id>
+            <properties>
+                <production.mode>true</production.mode>
+                <profile.directory>src/main/profiles/openshift</profile.directory>
+            </properties>
+        </profile>
+    </profiles>
 
     <repositories>
         <repository>
