@@ -8,3 +8,5 @@ model/target/
 backend/target/
 webapps/
 app/src/main/webapp/VAADIN/themes/lotrtheme/styles.css
+app/src/main/webapp/VAADIN/gwt-unitCache/
+app/src/main/webapp/VAADIN/widgetsets/WEB-INF/

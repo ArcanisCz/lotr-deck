@@ -41,7 +41,8 @@
             <id>openshift</id>
             <properties>
                 <production.mode>true</production.mode>
-                <profile.directory>src/main/profiles/openshift</profile.directory>
+                <!--<profile.directory>src/main/profiles/openshift</profile.directory>-->
+                <profile.directory>src/main/profiles/localhost</profile.directory>
             </properties>
         </profile>
     </profiles>
@@ -52,10 +53,25 @@
                 <plugin>
                     <groupId>com.vaadin</groupId>
                     <artifactId>vaadin-maven-plugin</artifactId>
+                    <configuration>
+                        <strict>true</strict>
+                        <force>true</force>
+                        <webappDirectory>src/main/webapp/VAADIN/widgetsets</webappDirectory>
+                        <modules>
+                            <module>cz.arcanis.lotr.LotrWidgetset</module>
+                        </modules>
+                        <persistentunitcachedir>${project.build.directory}</persistentunitcachedir>
+                        <deploy>${project.build.directory}/gwt-deploy</deploy>
+                    </configuration>
                     <executions>
                         <execution>
                             <goals>
+                                <goal>clean</goal>
+                                <goal>resources</goal>
+                                <goal>update-theme</goal>
+                                <goal>update-widgetset</goal>
                                 <goal>compile-theme</goal>
+                                <goal>compile</goal>
                             </goals>
                         </execution>
                     </executions>
@@ -83,6 +99,23 @@
                         </webResources>
                     </configuration>
                 </plugin>
+                <plugin>
+                    <groupId>net.alchim31.maven</groupId>
+                    <artifactId>yuicompressor-maven-plugin</artifactId>
+                    <version>1.5.1</version>
+                    <configuration>
+                        <nosuffix>true</nosuffix>
+                        <gzip>true</gzip>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <phase>package</phase>
+                            <goals>
+                                <goal>compress</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
             </plugins>
         </pluginManagement>
     </build>
@@ -101,29 +134,25 @@
                 <artifactId>vaadin-server</artifactId>
                 <version>${vaadin.version}</version>
             </dependency>
-            <dependency>
-                <groupId>com.vaadin</groupId>
-                <artifactId>vaadin-client-compiled</artifactId>
-                <version>${vaadin.version}</version>
-            </dependency>
+            <!--<dependency>-->
+                <!--<groupId>com.vaadin</groupId>-->
+                <!--<artifactId>vaadin-client-compiled</artifactId>-->
+                <!--<version>${vaadin.version}</version>-->
+            <!--</dependency>-->
 
-            <!-- Optional for extending client-side See: https://vaadin.com/book/-/page/clientside.html
             <dependency>
                 <groupId>com.vaadin</groupId>
                 <artifactId>vaadin-client</artifactId>
                 <version>7.5.1</version>
                 <scope>provided</scope>
             </dependency>
-            -->
 
-            <!-- Optional for optimizing client-side widgets See: https://vaadin.com/book/-/page/mobile.optimization.html
             <dependency>
                 <groupId>com.vaadin</groupId>
                 <artifactId>vaadin-client-compiler</artifactId>
                 <version>7.5.1</version>
                 <scope>provided</scope>
             </dependency>
-            -->
 
             <dependency>
                 <groupId>com.vaadin</groupId>
@@ -158,7 +187,7 @@
             <dependency>
                 <groupId>com.vaadin</groupId>
                 <artifactId>vaadin-spring</artifactId>
-                <version>1.0.0.beta1</version>
+                <version>1.0.0.beta3</version>
             </dependency>
             <dependency>
                 <groupId>org.slf4j</groupId>

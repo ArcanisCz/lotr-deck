@@ -2,6 +2,7 @@ package cz.arcanis.lotr.vaadin;
 
 import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.Title;
+import com.vaadin.annotations.Widgetset;
 import com.vaadin.navigator.Navigator;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.spring.annotation.SpringUI;
@@ -16,6 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 @SpringUI
 @Title("Addressbook")
 @Theme(LotrTheme.THEME_NAME)
+@Widgetset("cz.arcanis.lotr.LotrWidgetset")
 public class LotrUI extends UI {
     private Navigator navigator;
 
